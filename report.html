@@ -13058,7 +13058,7 @@ RK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-From the relative frequencey graph we can see that cab makes bad decisions about half of the time. These results are intuitively pleasing since agents acting randomly should, on average, take about as many good actions as bad ones. The Rate of Reliability starts at about 30% and then decreases to 0%, which makes sense because a random journey will almost never take me to destination (let alone on time!). The average rewards per action produce the worst values seen in the <strong>Understanding the World</strong> section. In other words, the algorithm is being heavily penalized for acting so erratically. THe Safety and Reliability Ratings say it all, this cab is totally unrelieable and horrendously unsafe.</p>
+From the relative frequencey graph we can see that cab makes bad decisions about half of the time. These results are intuitively pleasing since agents acting randomly should, on average, take about as many good actions as bad ones. Both major and minor accidents occur consistently about About 5% of the of time. As the number of trials increases the algorithm sees no significant improvement because it isn't actually learning, it's just taking random actions. The Rate of Reliability starts at about 30% and then decreases to 0%, which makes sense because a random journey will almost never take me to destination (let alone on time!). The average rewards per action produce the worst values seen in the <strong>Understanding the World</strong> section. In other words, the algorithm is being heavily penalized for acting so erratically. THe Safety and Reliability Ratings say it all, this cab is totally unrelieable and horrendously unsafe.</p>
 
 </div>
 </div>
@@ -15922,7 +15922,11 @@ dhOgmwAAAABJRU5ErkJggg==
 <ul>
 <li>The decay function function used was: $ \epsilon_{t+1} = \epsilon_t \mathrm{e}^{-\frac{\alpha}{10}} $.</li>
 <li>The learning process took about 175 trials</li>
-<li>An $\epsilon$-tolerance of <code>0.005</code> and a learning rate $\alpha$<code>=0.3</code> were used in the final algorithm</li>
+<li>An $\epsilon$-tolerance of <code>0.005</code> and a learning rate $\alpha$<code>=0.3</code> were used in the final algorithm<ul>
+<li>The learning rate was decreased from <code>0.5</code> to <code>0.3</code> in order to increase the number of steps or tials taken to train</li>
+<li>The $\epsilon$-tolerance was tweaked until the Reliability Rating was satisfactory</li>
+</ul>
+</li>
 <li>The agent improved significantly in the optimized version for a number of reasons:<ul>
 <li>Previously the max reward was about -3, now it's about +2</li>
 <li>Previously the reliability peaked around 50%, now it is about 95%</li>
@@ -16038,7 +16042,7 @@ The optimal policy is essentially the set of U.S. traffic laws. If the light is 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> Future rewards only make sense to talk about if they are fixed. In this simulation, the environment changes on each step, meaning that the state of the environment is not causally linked to the previous state. Thus the rewards aren't certainly not fixed and there is no way of determining what a future reward will be given the current state. We also designed the Smartcab's state to remain focused on the current state, and therefore the agent has no concept of future rewards. In other words, the agent would have no reason to take actions that would optimize future reward.</p>
+<p><strong>Answer:</strong> Future rewards only make sense to talk about if they are fixed. In this simulation, the environment changes on each step, meaning that the state of the environment is not causally linked to the previous state. Thus the rewards aren't certainly not fixed and there is no way of determining what a future reward will be given the current state. We also designed the Smartcab's state to remain focused on the current state, and therefore the agent has no concept of future rewards. In other words, the agent would have no reason to take actions that would optimize future reward. In a sense the agent only has a local view of a global environment, meaning that it can only see the intersection it is currently at; no other information from the environment can be used to inform the agent's decision</p>
 
 </div>
 </div>
